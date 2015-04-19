@@ -1,0 +1,94 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+}
+
+#search-field {
+    padding: 30px;
+    width: 50%;
+    margin: auto;
+}
+
+#search-input {
+    width: 100%;
+    font-size: x-large;
+    padding: 15px;
+}
+
+#results {
+    padding: 30px;
+    text-align: center;
+}
+
+.no-results {
+    font-size: large;
+    color: gray;
+    font-variant: small-caps;
+    text-align: center;
+}
+
+.load-more {
+    text-align: center;
+    padding: 25px;
+}
+
+.load-more > button {
+    font-size: large;
+    padding: 10px;
+}
+
+.gif {
+    display: inline-table;
+    -webkit-box-shadow: 0px 4px 15px -1px rgba(199,199,199,1);
+    -moz-box-shadow: 0px 4px 15px -1px rgba(199,199,199,1);
+    box-shadow: 0px 4px 15px -1px rgba(199,199,199,1);
+    padding: 10px;
+    background-color: white;
+    margin: 10px;
+}
+
+.gif-bottom {
+    padding-top: 10px;
+}
+
+.gif-status {
+    margin-top: 10px;
+}
+
+.link-input {
+    height: 30px;
+    width: 100%;
+}
+
+.gif-actions {
+    text-align: center;
+}
+
+.gif-actions a {
+    display: inline-block;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #888888;
+    color: #888888;
+    margin-right: 5px;
+    text-align: center;
+}
+
+.gif-actions a:hover {
+    background-color: lightgray;
+    color: white;
+    border: 1px solid white;
+}
+
+.gif-image {
+    margin-bottom: 10px;
+}

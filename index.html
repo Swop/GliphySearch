@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8/>
+    <title>Giphy Search</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/search.css"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
+    <link rel="stylesheet" href="http:////maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="js/search.js"></script>
+    <script type='text/javascript' src='vendor/ng-infinite-scroll/ng-infinite-scroll.min.js'></script>
+    <script type='text/javascript' src='vendor/spin.js/spin.min.js'></script>
+    <script type='text/javascript' src='vendor/angular-image-spinner/angular-image-spinner.js'></script>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body ng-app="GiphySearch">
+    <section id="giphy-search" ng-controller="SearchCtrl">
+        <section id="search-field">
+            <form ng-submit="search()">
+                <input type="text" ng-model="searchTerm" placeholder="Search few things here and wait for the fun..." id="search-input" />
+            </form>
+        </section>
+        <div class="no-results" ng-hide="results.length">No results</div>
+        <section id="results" infinite-scroll="loadMore()">
+            <article ng-repeat="result in results" class="gif">
+                <img class="gif-image" id="{{result.id}}" src="{{result.images.fixed_height_still.url}}"
+                     width="{{ result.images.fixed_height_still.width }}"
+                     height="{{ result.images.fixed_height_still.height }}" result="result"
+                     ng-cloak gif />
+                <aside class="gif-bottom">
+                    <section class="gif-actions">
+                        <a href="{{ result.images.original.url }}" download="gif_{{ result.id }}.gif"><i class="fa fa-arrow-down"></i></a>
+                        <a href="#" ng-click="highlightLink('#link-input-'+result.id, result, $event)"><i class="fa fa-link"></i></a>
+                    </section>
+                    <section class="gif-status" ng-show="result.showLink">
+                        <input type="text" class="link-input" id="link-input-{{ result.id }}" value="{{ result.images.original.url }}">
+                    </section>
+                </aside>
+            </article>
+        </section>
+    </section>
+</body>
+</html>
